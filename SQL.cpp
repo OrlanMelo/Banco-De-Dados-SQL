@@ -42,7 +42,7 @@ public:
 
 	/*
 	*
-	* O Argumento ser· a cadeia de caracteres onde se localiza o drive e o banco de dados para a conex„o, usando os par‚metros de conex„o.
+	* O Argumento ser√° a cadeia de caracteres onde se localiza o drive e o banco de dados para a conex√£o, usando os par√¢metros de conex√£o.
 	*
 	*/
 	void InicializarConexao(wstring Argumento)
@@ -67,8 +67,8 @@ public:
 	{
 		SQLAllocHandle(SQL_HANDLE_STMT, Dbc, &Identificador);
 
-		//Estes itens listados s„o os que est„o inseridos na tabela.
-		//VocÍ poder· alterar estes itens, acrescentar ou retirar.
+		//Estes itens listados s√£o os que est√£o inseridos na tabela.
+		//Voc√™ poder√° alterar estes itens, acrescentar ou retirar.
 		/*
 		wstring Nome = L"Marcos";
 		wstring Sobrenome = L"Cezar";
@@ -78,14 +78,18 @@ public:
 
 		wstring comandoSQL = L"insert into Usuario ( Nome, Sobrenome, Idade, Telefone ) values ('" + Nome + L"','" + Sobrenome + L"','" + Idade + L"','" + Telefone + L"')";
 
-		//Inserindo dados em tabela, nas colunas de informaÁıes.
+		//Inserindo dados em tabela, nas colunas de informa√ß√µes.
 		Retorno = SQLExecDirect(Identificador, (SQLWCHAR*)comandoSQL.c_str(), comandoSQL.length());
 		if (Retorno == SQL_SUCCESS)
+		{
 			cout << "Os dados solicitados foram inseridos no banco de dados com sucesso..\n";
+		}
 		else
+		{
 			MensagemDeErro();
+		}
 
-		//Desconectar-se do servidor e liberar todos os identificadores quando n„o for mais necess·rio.
+		//Desconectar-se do servidor e liberar todos os identificadores quando n√£o for mais necess√°rio.
 		if (Retorno == SQL_SUCCESS)
 		{
 			SQLFreeHandle(SQL_HANDLE_STMT, Identificador);
@@ -100,7 +104,7 @@ public:
 int main()
 {
 
-	cout << "O assistente est· conectando-se ao banco de dados e criando um registro...\n";
+	cout << "O assistente est√° conectando-se ao banco de dados e criando um registro...\n";
 
 	Funcoes.AlocarIdentificador();
 	Funcoes.InicializarConexao(L"DRIVER={SQL Server};Server=ORLAN;Database=TESTE;Trusted_Connection=yes;");
